@@ -1,60 +1,99 @@
 # Hospital Management System
 
-## 📌 Project Overview
+A Java-based Hospital Management System built to demonstrate **DAO (Data Access Object) Pattern**, **Factory Pattern**, JDBC, MySQL, and object-oriented programming.
 
-A Java-based Hospital Management System designed to manage basic hospital operations and demonstrate object-oriented programming, database connectivity, and software design patterns.
+## Project Overview
 
-## 🛠️ Technologies Used
+This console-based application manages basic hospital operations including patients, doctors, and appointments. The application separates database access from business/model classes using the DAO pattern and uses a Factory class to create DAO implementations.
 
-- Java
-- MySQL
+## Features
+
+- Add and list patients
+- Add and list doctors
+- Book appointments
+- List appointments
+- Delete patients, doctors, and appointments
+- MySQL database persistence
+- JDBC database connectivity
+- DAO pattern for data access
+- Factory pattern for DAO object creation
+- Maven dependency management
+
+## Technologies Used
+
+- Java 17
 - JDBC
-- DAO Pattern
-- Factory Pattern
+- MySQL
+- Maven
+- SQL
+- DAO Design Pattern
+- Factory Design Pattern
 - Object-Oriented Programming
 
-## ✨ Features
+## Project Structure
 
-- Patient management
-- Doctor management
-- Appointment management
-- Database connectivity
-- CRUD operations
-- Organized DAO-based architecture
-- Factory Pattern implementation
+```text
+hospital-management-system/
+├── database/
+│   └── schema.sql
+├── src/main/java/com/avishkar/hospital/
+│   ├── config/
+│   │   └── DBConnection.java
+│   ├── dao/
+│   │   ├── PatientDAO.java
+│   │   ├── DoctorDAO.java
+│   │   ├── AppointmentDAO.java
+│   │   └── impl/
+│   │       ├── PatientDAOImpl.java
+│   │       ├── DoctorDAOImpl.java
+│   │       └── AppointmentDAOImpl.java
+│   ├── factory/
+│   │   └── DAOFactory.java
+│   ├── model/
+│   │   ├── Patient.java
+│   │   ├── Doctor.java
+│   │   └── Appointment.java
+│   └── Main.java
+├── pom.xml
+├── .gitignore
+└── README.md
+```
 
-## 🏗️ Project Architecture
+## Design Patterns
 
-The project follows a structured approach using:
+### DAO Pattern
+DAO interfaces define database operations, while implementation classes handle JDBC and SQL. This keeps database logic separate from the application models.
 
-- **DAO (Data Access Object)** – Handles database operations
-- **Factory Pattern** – Creates appropriate objects
-- **JDBC** – Connects Java application with MySQL
-- **OOP Concepts** – Encapsulation, inheritance, abstraction and polymorphism
+### Factory Pattern
+`DAOFactory` creates DAO implementations, reducing direct dependency on implementation classes in the main application.
 
-## 🗄️ Database
+## Setup
 
-MySQL is used as the backend database.
+1. Install Java 17, Maven, and MySQL.
+2. Open MySQL and execute:
+   `database/schema.sql`
+3. If your MySQL username/password is different, update `DBConnection.java`.
+4. Open the project in IntelliJ IDEA, Eclipse, or VS Code.
+5. Run the Maven project with:
 
-The application uses JDBC to perform database operations such as:
+```bash
+mvn clean compile
+mvn exec:java
+```
 
-- INSERT
-- SELECT
-- UPDATE
-- DELETE
+## Database
 
-## 🚀 Future Improvements
+The application uses a MySQL database named `hospital_db` with:
 
-- Add a graphical user interface
-- Add user authentication
-- Add role-based access
-- Add appointment scheduling
-- Improve validation and error handling
+- `patients`
+- `doctors`
+- `appointments`
 
-## 👨‍💻 Author
+## Resume Description
 
-**Avishkar Poojary**
+> Built a Java-based Hospital Management System using the DAO pattern for database access and the Factory pattern for object creation, with JDBC and MySQL to provide modular, maintainable, and scalable application architecture.
 
+## Author
+
+**Avishkar Poojary**  
 BCA Graduate | Java Developer | QA & Software Testing
-
-[LinkedIn](https://www.linkedin.com/in/avishkar-poojary-213427239)
